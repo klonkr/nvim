@@ -1,0 +1,12 @@
+source $HOME/AppData/Local/nvim/vim-plug/plugins.vim
+source $HOME/AppData/Local/nvim/general/settings.vim
+source $HOME/AppData/Local/nvim/keys/mappings.vim
+source $HOME/AppData/Local/nvim/plug-config/rainbow.vim
+source $HOME/AppData/Local/nvim/plug-config/start-screen.vim
+source $HOME/AppData/Local/nvim/plug-config/lsp-config.vim
+"source $HOME/AppData/Local/nvim/plug-config/compe-config.lua
+source $HOME/AppData/Local/nvim/plug-config/omnisharp-lsp.lua
+source $HOME/AppData/Local/nvim/plug-config/treesitter.lua
+source $HOME/AppData/Local/nvim/plug-config/telescope.vim
+source $HOME/AppData/Local/nvim/plug-config/nvim-cmp.lua
+source $HOME/AppData/Local/nvim/plug-config/lualine.lua
