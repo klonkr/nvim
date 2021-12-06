@@ -4,8 +4,6 @@ source $HOME/.config/nvim/keys/mappings.vim
 source $HOME/.config/nvim/plug-config/rainbow.vim
 source $HOME/.config/nvim/plug-config/start-screen.vim
 source $HOME/.config/nvim/plug-config/lsp-config.vim
-"source $HOME/AppData/Local/nvim/plug-config/compe-config.lua
-source $HOME/.config/nvim/plug-config/omnisharp-lsp.lua
 source $HOME/.config/nvim/plug-config/treesitter.lua
 source $HOME/.config/nvim/plug-config/telescope.vim
 source $HOME/.config/nvim/plug-config/nvim-cmp.lua
