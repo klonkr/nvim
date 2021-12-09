@@ -50,9 +50,21 @@ local cmp = require'cmp'
     })
   })
 
-  -- Setup lspconfig.
-  local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-  -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-  require('lspconfig')['omnisharp'].setup {
-    capabilities = capabilities
-  }
+local util = require 'lspconfig/util'
+local pid = vim.fn.getpid()
+local omnisharp_bin = "C:/omnisharp/OmniSharp.exe"
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
+
+local function on_cwd()
+  return vim.loop.cwd()
+end
+
+-- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
+require('lspconfig')['omnisharp'].setup {
+  cmd = { omnisharp_bin, "--languageserver" , "--hostPID", tostring(pid) },
+  filetypes = { "cs"}, --,"vb" },
+  root_dir = on_cwd,
+  capabilities = capabilities
+}
+

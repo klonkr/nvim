@@ -1,18 +1,23 @@
-local pid = vim.fn.getpid()
-local omnisharp_bin = "/home/fgxv/omnisharp-roslyn/run"
+--local pid = vim.fn.getpid()
+--local omnisharp_bin = "/home/fgxv/omnisharp-roslyn/run"
+--local omnisharp_bin = "C:/omnisharp/OmniSharp.exe"
 
-local nvim_lsp = require('lspconfig')
-nvim_lsp.omnisharp.setup{
-    cmd = { omnisharp_bin, "--languageserver" , "--hostPID", tostring(pid) };
-    }
+--local nvim_lsp = require('lspconfig')
+--local util = require 'lspconfig/util'
 
--- Use an on_attach function to only map the following keys
--- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
-  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-
+--nvim_lsp.omnisharp.setup{
+--    cmd = { omnisharp_bin, "--languageserver" , "--hostPID", tostring(pid) },
+--    filetypes = { "cs"}, --,"vb" },
+--    root_dir = util.root_pattern('*.csproj', '*.sln', '.git')
+--    }
   -- Enable completion triggered by <c-x><c-o>
-  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+--  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-end
+--local pid = vim.fn.getpid()
+-- On linux/darwin if using a release build, otherwise under scripts/OmniSharp(.Core)(.cmd)
+--local omnisharp_bin = "/path/to/omnisharp-repo/run"
+-- on Windows
+--local omnisharp_bin = "C:/omnisharp/OmniSharp.exe"
+--require'lspconfig'.omnisharp.setup{
+--    cmd = { omnisharp_bin, "--languageserver" , "--hostPID", tostring(pid) };
+--}
