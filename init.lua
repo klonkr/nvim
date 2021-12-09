@@ -1,0 +1,7 @@
+require('settings')
+require('mappings')
+require('plugins')
+require('nvim-cmp-config')
+require('nvim-lspconfig')
+require('lspsaga-config')
+require('snippy-config')
