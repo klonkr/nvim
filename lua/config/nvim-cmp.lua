@@ -52,9 +52,13 @@ local cmp = require'cmp'
 
 local util = require 'lspconfig/util'
 local pid = vim.fn.getpid()
---local omnisharp_bin = "C:/omnisharp/OmniSharp.exe"
-local omnisharp_bin = "/home/fgxv/omnisharp-roslyn/run"
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local omnisharp_bin -- = "C:/omnisharp/OmniSharp.exe"
+
+if (vim.loop.os_uname().sysname == 'Linux') then
+  omnisharp_bin = "/home/fgxv/omnisharp-roslyn/run"
+end
+
+  local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 
 local function on_cwd()
