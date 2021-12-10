@@ -58,8 +58,11 @@ if (vim.loop.os_uname().sysname == 'Linux') then
   omnisharp_bin = "/home/fgxv/omnisharp-roslyn/run"
 end
 
-  local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-
+if (vim.loop.os_uname().sysname == 'Windows_NT') then
+  omnisharp_bin = "C:/omnisharp/OmniSharp.exe"
+end
+  
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 local function on_cwd()
   return vim.loop.cwd()
