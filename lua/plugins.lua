@@ -32,7 +32,6 @@ return require('packer').startup(function()
   end
   }
 
-  use 'nvim-treesitter/nvim-treesitter'
   use 'romgrk/nvim-treesitter-context'
 
   use 'lukas-reineke/indent-blankline.nvim'
