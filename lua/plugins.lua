@@ -31,6 +31,12 @@ return require('packer').startup(function()
     }
   end
   }
+
+  use 'nvim-treesitter/nvim-treesitter'
+  use 'romgrk/nvim-treesitter-context'
+
+  use 'lukas-reineke/indent-blankline.nvim'
+
   use 'kevinhwang91/rnvimr'
   use 'tpope/vim-repeat'
   use 'ggandor/lightspeed.nvim'
@@ -40,10 +46,15 @@ return require('packer').startup(function()
   use 'shaunsingh/nord.nvim'
   use 'navarasu/onedark.nvim'
   use 'sainnhe/gruvbox-material'
-  
-  use 'ms-jpq/chadtree'
 
---  use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+  use {
+    'kyazdani42/nvim-tree.lua',
+    requires = {
+      'kyazdani42/nvim-web-devicons', -- optional, for file icon
+    },
+    config = function() require'nvim-tree'.setup {} end
+  }
+
   use {'stevearc/dressing.nvim'}
 
   use {
@@ -72,4 +83,5 @@ return require('packer').startup(function()
   -- terminal
   use "numToStr/FTerm.nvim"
 
+  use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
 end)
