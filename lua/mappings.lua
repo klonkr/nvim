@@ -42,4 +42,4 @@ map('n', 'fh', "<cmd>lua require('telescope.builtin').help_tags()<cr>")
 --map('n' "<C-w>", "<cmd>RnvimrToggle<cr>", opts)
 map('n', '<leader>w', "<cmd>lua require('nvim-window').pick()<cr>", { silent = true, noremap = true })
 
-map('n', '<leader>v', "<cmd>CHADopen<cr>")
+map('n', '<leader>v', "<cmd>NvimTreeToggle<cr>")
