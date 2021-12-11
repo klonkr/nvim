@@ -31,14 +31,18 @@ return require('packer').startup(function()
     }
   end
   }
-  use 'shaunsingh/nord.nvim'
   use 'kevinhwang91/rnvimr'
   use 'tpope/vim-repeat'
   use 'ggandor/lightspeed.nvim'
   use 'https://gitlab.com/yorickpeterse/nvim-window.git'
+  
+  --themes
+  use 'shaunsingh/nord.nvim'
   use 'navarasu/onedark.nvim'
   use 'sainnhe/gruvbox-material'
+  
   use 'ms-jpq/chadtree'
+
 --  use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
   use {'stevearc/dressing.nvim'}
 
@@ -64,5 +68,8 @@ return require('packer').startup(function()
     'AckslD/nvim-whichkey-setup.lua',
     requires = {'liuchengxu/vim-which-key'},
   }
+
+  -- terminal
+  use "numToStr/FTerm.nvim"
 
 end)

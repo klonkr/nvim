@@ -14,6 +14,7 @@ local keymap = {
             c = {'<Cmd>Telescope commands<CR>', 'commands'},
             h = {'<Cmd>Telescope command_history<CR>', 'history'},
         },
+        t = { 'lua require"FTerm".open()', 'Open Terminal' },
         q = {'<Cmd>Telescope quickfix<CR>', 'quickfix'},
         g = {
             name = '+git',
@@ -22,7 +23,7 @@ local keymap = {
             b = {'<Cmd>Telescope git_branches<CR>', 'branches'},
             s = {'<Cmd>Telescope git_status<CR>', 'status'},
         },
-    }
+    },
 }
 
 wk.register_keymap('leader', keymap)
