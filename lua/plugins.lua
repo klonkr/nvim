@@ -32,6 +32,11 @@ return require('packer').startup(function()
   end
   }
 
+  use 'yamatsum/nvim-cursorline'
+
+
+  use { "beauwilliams/focus.nvim", config = function() require("focus").setup() end }
+
   use 'romgrk/nvim-treesitter-context'
 
   use 'lukas-reineke/indent-blankline.nvim'
