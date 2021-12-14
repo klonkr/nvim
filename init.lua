@@ -10,5 +10,3 @@ require('config.telescope')
 require('config.which-key')
 require('config.indent-blankline')
 require('config.dapui')
-
---trigger again

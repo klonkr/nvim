@@ -12,6 +12,14 @@ local keymap = {
         b = 'Buffers',
         g = 'Live grep',
         h = 'Help Tags'
+      },
+      g = {
+        name = '+git',
+        c = 'commits',
+        b = 'commits in buffer',
+        r = 'branches',
+        s = 'status',
+        t = 'stashes'
       }
     },
 }
