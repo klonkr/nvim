@@ -34,12 +34,29 @@ map('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
 map('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
 --map('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 
+-- telescope stuff
+-- find files
 map('n', '<leader>tff', "<cmd>lua require('telescope.builtin').find_files()<cr>")
 map('n', '<leader>tfg', "<cmd>lua require('telescope.builtin').live_grep()<cr>")
 map('n', '<leader>tfb', "<cmd>lua require('telescope.builtin').buffers()<cr>")
 map('n', '<leader>tfh', "<cmd>lua require('telescope.builtin').help_tags()<cr>")
 
+-- git
+map('n', '<leader>tgs', "<cmd>lua require('telescope.builtin').git_status()<cr>")
+map('n', '<leader>tgc', "<cmd>lua require('telescope.builtin').git_commits()<cr>")
+map('n', '<leader>tgb', "<cmd>lua require('telescope.builtin').git_bcommits()<cr>")
+map('n', '<leader>tgr', "<cmd>lua require('telescope.builtin').git_branches()<cr>")
+map('n', '<leader>tgt', "<cmd>lua require('telescope.builtin').git_stash()<cr>")
+
 --map('n' "<C-w>", "<cmd>RnvimrToggle<cr>", opts)
 map('n', '<leader>w', "<cmd>lua require('nvim-window').pick()<cr>", { silent = true, noremap = true })
 
 map('n', '<leader>v', "<cmd>NvimTreeToggle<cr>")
+
+--dap
+map('n', '<F9>', "<cmd>lua require'dap'.toggle_breakpoint()<cr>)", opts)
+map('n', '<leader>dtd', "<cmd>lua require'dapui'.toggle()<cr>)", opts)
+map('n', '<F5>', "<cmd>lua require'dap'.continue()<cr>)", opts)
+map('n', '<F10>', "<cmd>lua require'dap'.step_over()<cr>)", opts)
+map('n', '<F11>', "<cmd>lua require'dap'.step_into()<cr>)", opts)
+map('n', '<S-F11>', "<cmd>lua require'dap'.step_into()<cr>)", opts)

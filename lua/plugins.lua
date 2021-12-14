@@ -7,6 +7,9 @@ return require('packer').startup(function()
     run = ':TSUpdate'
   }
 
+  use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+
+
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
@@ -32,7 +35,7 @@ return require('packer').startup(function()
   end
   }
 
-  use 'yamatsum/nvim-cursorline'
+--  use 'yamatsum/nvim-cursorline'
 
 
   use { "beauwilliams/focus.nvim", config = function() require("focus").setup() end }
