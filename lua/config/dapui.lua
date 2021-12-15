@@ -1,7 +1,18 @@
 local dap = require('dap')
+local command = ""
+
+
+if (vim.loop.os_uname().sysname == 'Linux') then
+  command = "/usr/bin/netcoredbg"
+end
+
+if (vim.loop.os_uname().sysname == 'Windows_NT') then
+  command = "C:/Program Files (x86)/netcoredbg/netcoredbg.exe"
+end
+
 dap.adapters.netcoredbg = {
   type = 'executable',
-  command = '/usr/bin/netcoredbg',
+  command = command, 
   args = {'--interpreter=vscode'}
 }
 
