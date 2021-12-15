@@ -8,7 +8,7 @@ local keymap = {
       f = 'Files',
       b = 'Buffers',
       g = 'Live grep',
-      h = 'Help Tags'
+      h = 'Help Tags',
       r = 'file browser'
     },
     g = {
