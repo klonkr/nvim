@@ -53,6 +53,7 @@ return require('packer').startup(function()
   use 'shaunsingh/nord.nvim'
   use 'navarasu/onedark.nvim'
   use 'sainnhe/gruvbox-material'
+  use 'folke/tokyonight.nvim'
 
   use {
     'kyazdani42/nvim-tree.lua',

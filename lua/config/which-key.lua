@@ -2,7 +2,6 @@ local wk = require('whichkey_setup')
 
 local keymap = {
     
-    w = {':w!<CR>', 'save file'}, -- set a single command and text
     ['<CR>'] = {'@q', 'macro q'}, -- setting a special key
     t = {
       name = '+telescope',
@@ -13,6 +12,7 @@ local keymap = {
         g = 'Live grep',
         h = 'Help Tags'
       },
+      b = 'file browser',
       g = {
         name = '+git',
         c = 'commits',
@@ -22,6 +22,21 @@ local keymap = {
         t = 'stashes'
       }
     },
+    l = {
+      name = '+lsp',
+      s = {
+        name = '+symbols',
+        d = 'document',
+        w = 'workspace',
+        y = 'dYnamic'
+      },
+      a = 'code actions',
+      d = 'diagnostics',
+      i = 'implementations',
+      e = 'definitions',
+      t = 'type definitions',
+      r = 'references'
+    }
 }
 
 wk.register_keymap('leader', keymap)
