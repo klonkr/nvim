@@ -35,7 +35,10 @@ return require('packer').startup(function()
   end
   }
 
+  use 'simrat39/symbols-outline.nvim'
+
 --  use 'yamatsum/nvim-cursorline'
+  use 'RRethy/vim-illuminate'
 
 
   use { "beauwilliams/focus.nvim", config = function() require("focus").setup() end }

@@ -30,3 +30,7 @@ wo.number = true
 wo.relativenumber = true
 wo.signcolumn = 'yes'
 wo.wrap = false
+
+vim.g.symbols_outline = {
+  width = 35
+}

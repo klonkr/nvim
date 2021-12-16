@@ -1,23 +1,31 @@
---local pid = vim.fn.getpid()
---local omnisharp_bin = "/home/fgxv/omnisharp-roslyn/run"
---local omnisharp_bin = "C:/omnisharp/OmniSharp.exe"
+if (vim.loop.os_uname().sysname == 'Linux') then
 
---local nvim_lsp = require('lspconfig')
---local util = require 'lspconfig/util'
+  local runtime_path = vim.split(package.path, ';')
+  table.insert(runtime_path, "lua/?.lua")
+  table.insert(runtime_path, "lua/?/init.lua")
 
---nvim_lsp.omnisharp.setup{
---    cmd = { omnisharp_bin, "--languageserver" , "--hostPID", tostring(pid) },
---    filetypes = { "cs"}, --,"vb" },
---    root_dir = util.root_pattern('*.csproj', '*.sln', '.git')
---    }
-  -- Enable completion triggered by <c-x><c-o>
---  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
-
---local pid = vim.fn.getpid()
--- On linux/darwin if using a release build, otherwise under scripts/OmniSharp(.Core)(.cmd)
---local omnisharp_bin = "/path/to/omnisharp-repo/run"
--- on Windows
---local omnisharp_bin = "C:/omnisharp/OmniSharp.exe"
---require'lspconfig'.omnisharp.setup{
---    cmd = { omnisharp_bin, "--languageserver" , "--hostPID", tostring(pid) };
---}
+  require'lspconfig'.sumneko_lua.setup {
+    settings = {
+      Lua = {
+        runtime = {
+          -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+          version = 'LuaJIT',
+          -- Setup your lua path
+          path = runtime_path,
+        },
+        diagnostics = {
+          -- Get the language server to recognize the `vim` global
+          globals = {'vim'},
+        },
+        workspace = {
+          -- Make the server aware of Neovim runtime files
+          library = vim.api.nvim_get_runtime_file("", true),
+        },
+        -- Do not send telemetry data containing a randomized but unique identifier
+        telemetry = {
+          enable = false,
+        },
+      },
+    },
+  }
+end
