@@ -1,7 +1,8 @@
 function Scandir(directory)
-  local i, t, popen = 0, {}, io.popen, pfile
+  local i, t, popen = 0, {}, io.popen
+  local pfile
   if IsLinux() then
-    pfile = popen('ls"'..directory..'"')
+    pfile = popen('ls "'..directory..'"')
   end
   if IsWindows() then
     pfile = popen('dir ' .. directory .. ' /b')
@@ -15,19 +16,19 @@ function Scandir(directory)
  end
 
 function IsLinux()
-            if (vim.loop.os_uname().sysname == 'Linux') then
-                return true
-            else
-                return false
-            end
+  if (vim.loop.os_uname().sysname == 'Linux') then
+    return true
+  else
+    return false
+  end
 end
 
 function IsWindows()
-    if (vim.loop.os_uname().sysname == 'Windows_NT') then
-        return true
-else
+  if (vim.loop.os_uname().sysname == 'Windows_NT') then
+    return true
+  else
     return false
-end
+  end
 end
 
 function Get_project_name()

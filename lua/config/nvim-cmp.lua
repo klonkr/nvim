@@ -56,11 +56,11 @@ local util = require 'lspconfig/util'
 local pid = vim.fn.getpid()
 local omnisharp_bin -- = "C:/omnisharp/OmniSharp.exe"
 
-if (vim.loop.os_uname().sysname == 'Linux') then
+if (IsLinux()) then
   omnisharp_bin = "/home/fgxv/omnisharp-roslyn/run"
 end
 
-if (vim.loop.os_uname().sysname == 'Windows_NT') then
+if (IsWindows()) then
   omnisharp_bin = "C:/omnisharp/OmniSharp.exe"
 end
   
