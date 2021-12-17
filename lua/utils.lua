@@ -1,10 +1,28 @@
-function Scandir(directory)
+local utils = {}
+
+function utils.isLinux()
+  if (vim.loop.os_uname().sysname == 'Linux') then
+    return true
+  else
+    return false
+  end
+end
+
+function utils.isWindows()
+  if (vim.loop.os_uname().sysname == 'Windows_NT') then
+    return true
+  else
+    return false
+  end
+end
+
+function utils.scandir(directory)
   local i, t, popen = 0, {}, io.popen
   local pfile
-  if IsLinux() then
+  if utils.isLinux() then
     pfile = popen('ls "'..directory..'"')
   end
-  if IsWindows() then
+  if utils.isWindows() then
     pfile = popen('dir ' .. directory .. ' /b')
   end
   for filename in pfile:lines() do
@@ -15,25 +33,9 @@ function Scandir(directory)
   return t
  end
 
-function IsLinux()
-  if (vim.loop.os_uname().sysname == 'Linux') then
-    return true
-  else
-    return false
-  end
-end
-
-function IsWindows()
-  if (vim.loop.os_uname().sysname == 'Windows_NT') then
-    return true
-  else
-    return false
-  end
-end
-
-function Get_project_name()
+function utils.get_project_name()
   local path = vim.fn.getcwd()
-  local files = Scandir(path)
+  local files = utils.scandir(path)
   local projname = ''
   local type = ''
   for key, value in pairs(files) do
@@ -52,3 +54,5 @@ function Get_project_name()
   end
   return projname, type
 end
+
+return utils

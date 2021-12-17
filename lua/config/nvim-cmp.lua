@@ -1,4 +1,5 @@
 local cmp = require'cmp'
+local utils = require('utils')
 
   cmp.setup({
     snippet = {
@@ -56,11 +57,11 @@ local util = require 'lspconfig/util'
 local pid = vim.fn.getpid()
 local omnisharp_bin -- = "C:/omnisharp/OmniSharp.exe"
 
-if (IsLinux()) then
+if utils.isLinux() then
   omnisharp_bin = "/home/fgxv/omnisharp-roslyn/run"
 end
 
-if (IsWindows()) then
+if utils.isWindows() then
   omnisharp_bin = "C:/omnisharp/OmniSharp.exe"
 end
   

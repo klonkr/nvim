@@ -1,11 +1,12 @@
 local dap = require('dap')
+local utils = require('utils')
 local command = ""
 
-if IsLinux() then
+if utils.isLinux() then
   command = "/usr/bin/netcoredbg"
 end
 
-if IsWindows() then
+if utils.isWindows() then
   command = "C:/Program Files (x86)/netcoredbg/netcoredbg.exe"
 end
 
@@ -21,7 +22,7 @@ dap.configurations.cs = {
     name = "launch - netcoredbg",
     request = "launch",
     program = function()
-        local projectname, type = Get_project_name()
+        local projectname, type = utils.get_project_name()
         local path = ''
         if (type == 'csproj') then
             print('recieved csproj')
