@@ -1,6 +1,24 @@
 local dap = require('dap')
 local command = ""
 
+function get_project_name()
+ -- vim.fn.expand('%')
+  --api.nvim_command("echo vim.fn.expand('%')")
+--  api.nvim_command('echo "hello world"')
+  local path = vim.fn.getcwd()
+  local files = scandir(path)
+  local projname
+  for key, value in pairs(files) do
+    if string.find(value, ".csproj") then
+      local heh = string.find(value, ".csproj")
+      projname = string.sub(value, 0, heh - 1)
+      print(projname)
+      print('found proj!!!')
+    end
+    print(key, " -- ", value)
+  end
+  return projname
+end
 
 if (vim.loop.os_uname().sysname == 'Linux') then
   command = "/usr/bin/netcoredbg"
@@ -22,7 +40,8 @@ dap.configurations.cs = {
     name = "launch - netcoredbg",
     request = "launch",
     program = function()
-        return vim.fn.input('Path to dll', vim.fn.getcwd() .. '/bin/Debug/net6.0/', 'file')
+        return vim.fn.input('Path to dll', vim.fn.getcwd() .. '/bin/Debug/net6.0/' .. get_project_name() .. '.dll', 'file')
+       -- return vim.fn.input('Path to dll', vim.fn.getcwd() .. '/bin/Debug/net6.0/', 'file')
     end,
   },
 }
