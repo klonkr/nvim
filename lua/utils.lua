@@ -1,4 +1,4 @@
-function scandir(directory)
+function Scandir(directory)
   local i, t, popen = 0, {}, io.popen
   local pfile = popen('ls -a "'..directory..'"')
   for filename in pfile:lines() do
@@ -9,9 +9,10 @@ function scandir(directory)
   return t
  end
 
-function get_project_name()
+function Get_project_name()
   local path = vim.fn.getcwd()
-  local files = scandir(path)
+  print("inside gpn")
+  local files = Scandir(path)
   local projname
   for key, value in pairs(files) do
     if string.find(value, ".csproj") then
