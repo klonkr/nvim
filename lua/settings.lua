@@ -3,6 +3,7 @@ vim.wo.number = true
 vim.wo.relativenumber = true
 vim.cmd[[colorscheme tokyonight]]
 
+vim.g.dashboard_default_executive = 'telescope'
 
 local o = vim.o
 local bo = vim.bo
@@ -22,9 +23,9 @@ o.hidden = true
 o.completeopt='menuone,noinsert,noselect'
 bo.autoindent = true
 bo.smartindent = true
-o.tabstop = 2
-o.softtabstop = 2
-o.shiftwidth = 2
+o.tabstop = 4
+o.softtabstop = 4
+o.shiftwidth = 4
 o.expandtab = true
 wo.number = true
 wo.relativenumber = true
@@ -34,3 +35,6 @@ wo.wrap = false
 vim.g.symbols_outline = {
   width = 35
 }
+
+--vim.api.nvim_exec([[ autocmd FileType lua tabstop=2 softtabstop=2 shiftwidth=2]], false)
+--vim.api.nvim_exec([[ autocmd FileType cs tabstop=4 softtabstop=4 shiftwidth=4]], false)

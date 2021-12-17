@@ -7,8 +7,11 @@ return require('packer').startup(function()
     run = ':TSUpdate'
   }
 
+  use 'theHamsta/nvim-dap-virtual-text'
+
   use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
 
+  use 'glepnir/dashboard-nvim'
 
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
