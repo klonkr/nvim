@@ -6,6 +6,7 @@ function get_project_name()
   --api.nvim_command("echo vim.fn.expand('%')")
 --  api.nvim_command('echo "hello world"')
   local path = vim.fn.getcwd()
+  print('path: ', path)
   local files = scandir(path)
   local projname
   for key, value in pairs(files) do
