@@ -73,3 +73,8 @@ map('n', '<leader>cd', "<cmd>lua require'telescope.builtin'.diagnostics()<cr>", 
 map('n', '<leader>ci', "<cmd>lua require'telescope.builtin'.lsp_implementations(require('telescope.themes').get_dropdown({}))<cr>", opts)
 map('n', '<leader>ce', "<cmd>lua require'telescope.builtin'.lsp_definitions()<cr>", opts)
 map('n', '<leader>ct', "<cmd>lua require'telescope.builtin'.lsp_type_definitions()<cr>", opts)
+
+-- build and stuff
+map('n', '<F2>', "<cmd>lua require'utils'.restore()<cr>", opts)
+map('n', '<F3>', "<cmd>lua require'utils'.build()<cr>", opts)
+map('n', '<F4>', "<cmd>lua require'utils'.restoreAndBuild()<cr>", opts)

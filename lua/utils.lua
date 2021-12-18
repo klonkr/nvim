@@ -1,5 +1,24 @@
 local utils = {}
 
+function utils.restoreAndBuild()
+  utils.restore()
+  utils.build()
+end
+
+function utils.restore()
+  local handle = io.popen("dotnet restore")
+  local result = handle:read("*a")
+  print(result)
+  handle:close()
+end
+
+function utils.build()
+  local handle = io.popen("dotnet build")
+  local result = handle:read("*a")
+  print(result)
+  handle:close()
+end
+
 function utils.isLinux()
   if (vim.loop.os_uname().sysname == 'Linux') then
     return true
