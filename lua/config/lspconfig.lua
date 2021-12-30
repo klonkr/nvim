@@ -48,7 +48,7 @@ if utils.isWindows() then
   sumneko_binary = "C:/lua/bin/main.lua"
 elseif utils.isLinux() then
   lua_bin = "lua-language-server"
-  sumneko_binary = sumneko_root_path.."/bin/"..system_name.."/lua-language-server"
+  sumneko_binary = "/home/fgxv/.local/share/nvim/lsp_servers/sumneko_lua/extension/server/bin/Linux/main.lua"
 else
     print("Unsupported system for sumneko")
 end
