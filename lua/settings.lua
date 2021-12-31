@@ -2,6 +2,7 @@ vim.g.mapleader = ' '
 vim.wo.number = true
 vim.wo.relativenumber = true
 vim.cmd[[colorscheme tokyonight]]
+vim.cmd[[set guifont=FuraCode\ Nerd\ Font\ Mono:h8]]
 
 vim.g.dashboard_default_executive = 'telescope'
 
