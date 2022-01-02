@@ -7,6 +7,8 @@ return require('packer').startup(function()
     run = ':TSUpdate'
   }
 
+  use 'simrat39/rust-tools.nvim'
+
   use 'theHamsta/nvim-dap-virtual-text'
 
   use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
