@@ -78,3 +78,6 @@ map('n', '<leader>ct', "<cmd>lua require'telescope.builtin'.lsp_type_definitions
 map('n', '<F2>', "<cmd>lua require'utils'.restore()<cr>", opts)
 map('n', '<F3>', "<cmd>lua require'utils'.build()<cr>", opts)
 map('n', '<F4>', "<cmd>lua require'utils'.restoreAndBuild()<cr>", opts)
+
+-- system wide copy paste
+map('n', 'cp', '"*p"')
