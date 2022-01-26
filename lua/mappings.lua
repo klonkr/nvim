@@ -81,3 +81,7 @@ map('n', '<F4>', "<cmd>lua require'utils'.restoreAndBuild()<cr>", opts)
 
 -- system wide copy paste
 map('n', 'cp', '"*p"')
+
+map('n', '<A-i>', '<CMD>ToggleTerm<CR>', opts)
+map('t', '<A-i>', '<C-\\><C-n><CMD>ToggleTerm<CR>', opts)
+map("n", "<leader>gl", "<cmd>lua _lazygit_toggle()<CR>", {noremap = true, silent = true})

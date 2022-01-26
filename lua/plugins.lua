@@ -1,4 +1,5 @@
 return require('packer').startup(function()
+  use 'wbthomason/packer.nvim'
   -- lsp stuff
   use 'neovim/nvim-lspconfig'
   use 'tami5/lspsaga.nvim' 
@@ -6,6 +7,8 @@ return require('packer').startup(function()
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate'
   }
+
+  use {"ellisonleao/glow.nvim"}
 
   use 'simrat39/rust-tools.nvim'
 
@@ -110,6 +113,7 @@ return require('packer').startup(function()
 
   -- terminal
   use "numToStr/FTerm.nvim"
+  use {"akinsho/toggleterm.nvim"}
 
   use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
 end)
