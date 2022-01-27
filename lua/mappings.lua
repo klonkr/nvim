@@ -52,7 +52,7 @@ map('n', '<leader>gt', "<cmd>lua require('telescope.builtin').git_stash()<cr>")
 --map('n' "<C-w>", "<cmd>RnvimrToggle<cr>", opts)
 map('n', '<leader>w', "<cmd>lua require('nvim-window').pick()<cr>", { silent = true, noremap = true })
 
-map('n', '<leader>v', "<cmd>NvimTreeToggle<cr>")
+map('n', '<leader>v', "<cmd>NeoTreeFloatToggle<cr>")
 
 --dap
 map('n', '<F9>', "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)

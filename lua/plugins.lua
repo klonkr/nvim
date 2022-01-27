@@ -5,6 +5,7 @@ return require('packer').startup(function()
   use 'tami5/lspsaga.nvim' 
   use {
     'nvim-treesitter/nvim-treesitter',
+    commit = '668de0951a36ef17016074f1120b6aacbe6c4515',
     run = ':TSUpdate'
   }
 
@@ -79,11 +80,13 @@ return require('packer').startup(function()
   use 'folke/tokyonight.nvim'
 
   use {
-    'kyazdani42/nvim-tree.lua',
-    requires = {
-      'kyazdani42/nvim-web-devicons', -- optional, for file icon
-    },
-    config = function() require'nvim-tree'.setup {} end
+  "nvim-neo-tree/neo-tree.nvim",
+    branch = "v1.x",
+    requires = { 
+      "nvim-lua/plenary.nvim",
+      "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
+        "MunifTanjim/nui.nvim" 
+    }
   }
 
   use {'stevearc/dressing.nvim'}
