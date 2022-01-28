@@ -38,6 +38,3 @@ wo.wrap = false
 vim.g.symbols_outline = {
   width = 35
 }
-
---vim.api.nvim_exec([[ autocmd FileType lua tabstop=2 softtabstop=2 shiftwidth=2]], false)
---vim.api.nvim_exec([[ autocmd FileType cs tabstop=4 softtabstop=4 shiftwidth=4]], false)

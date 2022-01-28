@@ -1,8 +1,8 @@
-return require('packer').startup(function()
+return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
   -- lsp stuff
   use 'neovim/nvim-lspconfig'
-  use 'tami5/lspsaga.nvim' 
+  use 'tami5/lspsaga.nvim'
   use {
     'nvim-treesitter/nvim-treesitter',
     commit = '668de0951a36ef17016074f1120b6aacbe6c4515',
@@ -70,9 +70,10 @@ return require('packer').startup(function()
   use 'tpope/vim-repeat'
   use 'ggandor/lightspeed.nvim'
   use 'https://gitlab.com/yorickpeterse/nvim-window.git'
-  
+
   --themes
   use  { 'luisiacc/gruvbox-baby', branch = 'main'}
+
   use "rebelot/kanagawa.nvim"
   use 'marko-cerovac/material.nvim'
   use 'shaunsingh/nord.nvim'
@@ -83,10 +84,10 @@ return require('packer').startup(function()
   use {
   "nvim-neo-tree/neo-tree.nvim",
     branch = "v1.x",
-    requires = { 
+    requires = {
       "nvim-lua/plenary.nvim",
       "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
-        "MunifTanjim/nui.nvim" 
+        "MunifTanjim/nui.nvim"
     }
   }
 
@@ -119,5 +120,12 @@ return require('packer').startup(function()
   use "numToStr/FTerm.nvim"
   use {"akinsho/toggleterm.nvim"}
 
+  use {
+    'lewis6991/gitsigns.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim'
+    },
+  -- tag = 'release' -- To use the latest release
+  }
   use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
 end)
