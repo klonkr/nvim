@@ -1,11 +1,11 @@
 vim.g.mapleader = ' '
 vim.wo.number = true
 vim.wo.relativenumber = true
-vim.cmd[[colorscheme tokyonight]]
+vim.cmd[[colorscheme material]]
 vim.cmd[[set guifont=FuraCode\ Nerd\ Font\ Mono:h8]]
 vim.g.tokyonight_style = "night"
 
-vim.g.dashboard_default_executive = 'telescope'
+-- vim.g.dashboard_default_executive = 'telescope'
 
 local o = vim.o
 local bo = vim.bo

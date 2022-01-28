@@ -29,8 +29,6 @@ return require('packer').startup(function()
 
   use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
 
-  use 'glepnir/dashboard-nvim'
-
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
@@ -74,6 +72,7 @@ return require('packer').startup(function()
   use 'https://gitlab.com/yorickpeterse/nvim-window.git'
   
   --themes
+  use 'marko-cerovac/material.nvim'
   use 'shaunsingh/nord.nvim'
   use 'navarasu/onedark.nvim'
   use 'sainnhe/gruvbox-material'
