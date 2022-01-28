@@ -72,6 +72,8 @@ return require('packer').startup(function()
   use 'https://gitlab.com/yorickpeterse/nvim-window.git'
   
   --themes
+  use  { 'luisiacc/gruvbox-baby', branch = 'main'}
+  use "rebelot/kanagawa.nvim"
   use 'marko-cerovac/material.nvim'
   use 'shaunsingh/nord.nvim'
   use 'navarasu/onedark.nvim'
