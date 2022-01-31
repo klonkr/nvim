@@ -120,6 +120,7 @@ return require('packer').startup(function(use)
   use "numToStr/FTerm.nvim"
   use {"akinsho/toggleterm.nvim"}
 
+-- git stuff
   use {
     'lewis6991/gitsigns.nvim',
     requires = {
@@ -127,5 +128,7 @@ return require('packer').startup(function(use)
     },
   -- tag = 'release' -- To use the latest release
   }
+
   use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
+  use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 end)
