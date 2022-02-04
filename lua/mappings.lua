@@ -35,6 +35,7 @@ map('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
 map('n', '<leader>cf', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 
 -- tree
+map('n', '<leader>tt', '<cmd>NeoTreeFloatToggle<cr>', opts)
 
 -- telescope stuff
 -- find files
