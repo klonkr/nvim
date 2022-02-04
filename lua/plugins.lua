@@ -1,8 +1,117 @@
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
+
   -- lsp stuff
   use 'neovim/nvim-lspconfig'
-  use 'tami5/lspsaga.nvim'
+
+  use {
+  "nvim-neo-tree/neo-tree.nvim",
+    branch = "v1.x",
+    requires = { 
+      "nvim-lua/plenary.nvim",
+      "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
+      "MunifTanjim/nui.nvim" 
+    },
+    config = function ()
+      -- See ":help neo-tree-highlights" for a list of available highlight groups
+      vim.cmd([[
+        hi link NeoTreeDirectoryName Directory
+        hi link NeoTreeDirectoryIcon NeoTreeDirectoryName
+      ]])
+
+      require("neo-tree").setup({
+        popup_border_style = "rounded",
+        enable_git_status = true,
+        enable_diagnostics = true,
+        filesystem = {
+          filters = { --These filters are applied to both browsing and searching
+            show_hidden = false,
+            respect_gitignore = true,
+          },
+          follow_current_file = false, -- This will find and focus the file in the
+          -- active buffer every time the current file is changed while the tree is open.
+          use_libuv_file_watcher = false, -- This will use the OS level file watchers
+          -- to detect changes instead of relying on nvim autocmd events.
+          window = {
+            position = "left",
+            width = 40,
+            mappings = {
+              ["<2-LeftMouse>"] = "open",
+              ["<cr>"] = "open",
+              ["S"] = "open_split",
+              ["s"] = "open_vsplit",
+              ["C"] = "close_node",
+              ["<bs>"] = "navigate_up",
+              ["."] = "set_root",
+              ["H"] = "toggle_hidden",
+              ["I"] = "toggle_gitignore",
+              ["R"] = "refresh",
+              ["/"] = "filter_as_you_type",
+              --["/"] = "none" -- Assigning a key to "none" will remove the default mapping
+              ["f"] = "filter_on_submit",
+              ["<c-x>"] = "clear_filter",
+              ["a"] = "add",
+              ["d"] = "delete",
+              ["r"] = "rename",
+              ["c"] = "copy_to_clipboard",
+              ["x"] = "cut_to_clipboard",
+              ["p"] = "paste_from_clipboard",
+            }
+          }
+        },
+        buffers = {
+          show_unloaded = true,
+          window = {
+            position = "left",
+            mappings = {
+              ["<2-LeftMouse>"] = "open",
+              ["<cr>"] = "open",
+              ["S"] = "open_split",
+              ["s"] = "open_vsplit",
+              ["<bs>"] = "navigate_up",
+              ["."] = "set_root",
+              ["R"] = "refresh",
+              ["a"] = "add",
+              ["d"] = "delete",
+              ["r"] = "rename",
+              ["c"] = "copy_to_clipboard",
+              ["x"] = "cut_to_clipboard",
+              ["p"] = "paste_from_clipboard",
+              ["bd"] = "buffer_delete",
+            }
+          },
+        },
+        git_status = {
+          window = {
+            position = "float",
+            mappings = {
+              ["<2-LeftMouse>"] = "open",
+              ["<cr>"] = "open",
+              ["S"] = "open_split",
+              ["s"] = "open_vsplit",
+              ["C"] = "close_node",
+              ["R"] = "refresh",
+              ["d"] = "delete",
+              ["r"] = "rename",
+              ["c"] = "copy_to_clipboard",
+              ["x"] = "cut_to_clipboard",
+              ["p"] = "paste_from_clipboard",
+              ["A"]  = "git_add_all",
+              ["gu"] = "git_unstage_file",
+              ["ga"] = "git_add_file",
+              ["gr"] = "git_revert_file",
+              ["gc"] = "git_commit",
+              ["gp"] = "git_push",
+              ["gg"] = "git_commit_and_push",
+            }
+          }
+        }
+      })
+      vim.cmd([[nnoremap \ :NeoTreeReveal<cr>]])
+    end
+}
+
+
   use {
     'nvim-treesitter/nvim-treesitter',
     commit = '668de0951a36ef17016074f1120b6aacbe6c4515',
@@ -11,9 +120,10 @@ return require('packer').startup(function(use)
 
   use {"ellisonleao/glow.nvim"}
 
-  use 'simrat39/rust-tools.nvim'
+  use {'simrat39/rust-tools.nvim' }
 
-  use 'theHamsta/nvim-dap-virtual-text'
+  use { 'theHamsta/nvim-dap-virtual-text' }
+
   use {
   "folke/trouble.nvim",
   requires = "kyazdani42/nvim-web-devicons",
@@ -26,17 +136,19 @@ return require('packer').startup(function(use)
   end
   }
 
+  use { "rcarriga/nvim-dap-ui",
+        requires = {"mfussenegger/nvim-dap"}
+    }
 
-  use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
-
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-path'
-  use 'hrsh7th/cmp-cmdline'
-  use 'hrsh7th/nvim-cmp'
-  use 'dcampos/nvim-snippy'
-  use 'dcampos/cmp-snippy'
-  use 'honza/vim-snippets'
+  use { 'hrsh7th/cmp-nvim-lsp',
+  'hrsh7th/cmp-buffer',
+  'hrsh7th/cmp-path',
+  'hrsh7th/cmp-cmdline',
+  'hrsh7th/nvim-cmp',
+  'dcampos/nvim-snippy',
+  'dcampos/cmp-snippy',
+  'honza/vim-snippets',
+  }
 
   use {
     'nvim-telescope/telescope.nvim',
@@ -54,7 +166,7 @@ return require('packer').startup(function(use)
   end
   }
 
-  use 'simrat39/symbols-outline.nvim'
+  use { 'simrat39/symbols-outline.nvim' }
 
 --  use 'yamatsum/nvim-cursorline'
   use 'RRethy/vim-illuminate'
@@ -69,11 +181,10 @@ return require('packer').startup(function(use)
   use 'kevinhwang91/rnvimr'
   use 'tpope/vim-repeat'
   use 'ggandor/lightspeed.nvim'
-  use 'https://gitlab.com/yorickpeterse/nvim-window.git'
+  use { 'https://gitlab.com/yorickpeterse/nvim-window.git', as = 'nvim-window' }
 
   --themes
   use  { 'luisiacc/gruvbox-baby', branch = 'main'}
-
   use "rebelot/kanagawa.nvim"
   use 'marko-cerovac/material.nvim'
   use 'shaunsingh/nord.nvim'
@@ -82,13 +193,11 @@ return require('packer').startup(function(use)
   use 'folke/tokyonight.nvim'
 
   use {
-  "nvim-neo-tree/neo-tree.nvim",
-    branch = "v1.x",
-    requires = {
-      "nvim-lua/plenary.nvim",
-      "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
-        "MunifTanjim/nui.nvim"
-    }
+      'kyazdani42/nvim-tree.lua',
+      requires = {
+        'kyazdani42/nvim-web-devicons', -- optional, for file icon
+      },
+      config = function() require'nvim-tree'.setup {} end
   }
 
   use {'stevearc/dressing.nvim'}

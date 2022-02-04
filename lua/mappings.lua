@@ -32,7 +32,9 @@ map('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
 map('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
 map('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
 map('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
---map('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+map('n', '<leader>cf', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+
+-- tree
 
 -- telescope stuff
 -- find files
@@ -53,7 +55,6 @@ map('n', '<leader>gt', "<cmd>lua require('telescope.builtin').git_stash()<cr>")
 map('n', '<leader>w', "<cmd>lua require('nvim-window').pick()<cr>", { silent = true, noremap = true })
 
 map('n', '<leader>v', "<cmd>NeoTreeFloatToggle<cr>")
-
 --dap
 map('n', '<F9>', "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)
 map('n', '<leader>dtd', "<cmd>lua require'dapui'.toggle()<cr>", opts)
