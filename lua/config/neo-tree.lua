@@ -86,4 +86,4 @@ require("neo-tree").setup({
     }
   }
 })
---vim.cmd([[nnoremap \ :NeoTreeReveal<cr>]])
+vim.cmd([[nnoremap \ :NeoTreeReveal<cr>]])

@@ -7,15 +7,6 @@ end
 -- Mappings.
 local opts = { noremap=true, silent=true }
 
-map('n', '<leader>gr', "<cmd>Lspsaga rename<cr>", { silent = true, noremap = true })
-map("n", "gx", "<cmd>Lspsaga code_action<cr>", {silent = true, noremap = true})
-map("x", "gx", ":<c-u>Lspsaga range_code_action<cr>", {silent = true, noremap = true})
-map("n", "K",  "<cmd>Lspsaga hover_doc<cr>", {silent = true, noremap = true})
-map("n", "gj", "<cmd>Lspsaga diagnostic_jump_next<cr>", {silent = true, noremap = true})
-map("n", "gk", "<cmd>Lspsaga diagnostic_jump_prev<cr>", {silent = true, noremap = true})
-map("n", "<C-u>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<cr>")
-map("n", "<C-d>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<cr>")
-
 map('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
 map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
 map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)

@@ -116,3 +116,4 @@ local opts = {
 }
 
 require('rust-tools').setup(opts)
+require'lspconfig'.gopls.setup{}
