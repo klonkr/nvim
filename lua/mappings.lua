@@ -80,3 +80,18 @@ map('n', '<C-x>', '<CMD>ToggleTerm<CR>', opts)
 map('t', '<A-i>', '<C-\\><C-n><CMD>ToggleTerm<CR>', opts)
 map('t', '<C-x>', '<C-\\><C-n><CMD>ToggleTerm<CR>', opts)
 map("n", "<leader>gl", "<cmd>lua _lazygit_toggle()<CR>", {noremap = true, silent = true})
+
+-- Close buffer
+map('n', '<leader>bc', ':BufferClose<CR>', opts)
+-- Wipeout buffer
+--                 :BufferWipeout<CR>
+-- Close commands
+--                 :BufferCloseAllButCurrent<CR>
+--                 :BufferCloseBuffersLeft<CR>
+--                 :BufferCloseBuffersRight<CR>
+-- Magic buffer-picking mode
+map('n', '<leader>bp', ':BufferPick<CR>', opts)
+-- Sort automatically by...
+map('n', '<space>bn', ':BufferOrderByBufferNumber<CR>', opts)
+map('n', '<space>bd', ':BufferOrderByDirectory<CR>', opts)
+map('n', '<space>bl', ':BufferOrderByLanguage<CR>', opts)

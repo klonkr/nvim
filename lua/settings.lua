@@ -2,7 +2,8 @@ vim.g.mapleader = ' '
 vim.wo.number = true
 vim.wo.relativenumber = true
 vim.cmd[[colorscheme gruvbox-baby]]
-vim.cmd[[set guifont=FuraCode\ Nerd\ Font\ Mono:h8]]
+vim.cmd[[set guifont=FiraCode\ NF:h10]]
+--vim.cmd[[set guifont=Hack\ Nerd\ Font:h14]]
 --vim.g.tokyonight_style = "night"
 vim.g.material_style = "deep ocean"
 
@@ -12,7 +13,7 @@ local o = vim.o
 local bo = vim.bo
 local wo = vim.wo
 
---o.termguicolors = true
+o.termguicolors = true
 o.syntax = 'on'
 o.errorbells = false
 o.smartcase = true
@@ -38,3 +39,7 @@ wo.wrap = false
 vim.g.symbols_outline = {
   width = 35
 }
+
+-- nvui stuff
+--vim.cmd[[:NvuiToggleFrameless]]
+vim.cmd[[:NvuiOpacity 0.95]]
