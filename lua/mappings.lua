@@ -86,9 +86,9 @@ map('n', '<leader>bc', ':BufferClose<CR>', opts)
 -- Wipeout buffer
 --                 :BufferWipeout<CR>
 -- Close commands
---                 :BufferCloseAllButCurrent<CR>
---                 :BufferCloseBuffersLeft<CR>
---                 :BufferCloseBuffersRight<CR>
+map('n', '<leader>bc', ':BufferCloseAllButCurrent<CR>', opts)
+map('n', '<leader>bl', ':BufferCloseBuffersLeft<CR>', opts)
+map('n', '<leader>br', ':BufferCloseBuffersRight<CR>', opts)
 -- Magic buffer-picking mode
 map('n', '<leader>bp', ':BufferPick<CR>', opts)
 -- Sort automatically by...

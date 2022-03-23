@@ -1,11 +1,11 @@
 vim.g.mapleader = ' '
 vim.wo.number = true
 vim.wo.relativenumber = true
-vim.cmd[[colorscheme gruvbox-baby]]
+vim.cmd[[colorscheme tokyonight]]
 vim.cmd[[set guifont=FiraCode\ NF:h10]]
 --vim.cmd[[set guifont=Hack\ Nerd\ Font:h14]]
---vim.g.tokyonight_style = "night"
-vim.g.material_style = "deep ocean"
+vim.g.tokyonight_style = "night"
+--vim.g.material_style = "deep ocean"
 
 vim.g.dashboard_default_executive = 'telescope'
 
@@ -43,3 +43,4 @@ vim.g.symbols_outline = {
 -- nvui stuff
 --vim.cmd[[:NvuiToggleFrameless]]
 vim.cmd[[:NvuiOpacity 0.95]]
+vim.cmd[[language en]]
