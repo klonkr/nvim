@@ -3,7 +3,7 @@ vim.wo.number = true
 vim.wo.relativenumber = true
 vim.cmd[[colorscheme tokyonight]]
 vim.cmd[[set guifont=FiraCode\ NF:h10]]
---vim.cmd[[set guifont=Hack\ Nerd\ Font:h14]]
+-- vim.cmd[[set guifont=Hack\ Nerd\ Font:h14]]
 vim.g.tokyonight_style = "night"
 --vim.g.material_style = "deep ocean"
 
@@ -13,6 +13,8 @@ local o = vim.o
 local bo = vim.bo
 local wo = vim.wo
 
+-- o.guifont = 'FiraCode NF:8'
+o.clipboard = 'unnamedplus'
 o.termguicolors = true
 o.syntax = 'on'
 o.errorbells = false

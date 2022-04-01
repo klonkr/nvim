@@ -6,14 +6,16 @@ return require('packer').startup(function(use)
 
   -- lsp stuff
   use 'neovim/nvim-lspconfig'
+  use "terrortylor/nvim-comment"
+  use 'nvim-treesitter/nvim-treesitter-textobjects'
 
   use {
   "nvim-neo-tree/neo-tree.nvim",
     branch = "v1.x",
-    requires = { 
+    requires = {
       "nvim-lua/plenary.nvim",
       "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
-      "MunifTanjim/nui.nvim" 
+      "MunifTanjim/nui.nvim"
     },
     config = function ()
       -- See ":help neo-tree-highlights" for a list of available highlight groups
