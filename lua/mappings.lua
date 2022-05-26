@@ -10,6 +10,7 @@ local opts = { noremap=true, silent=true }
 map('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
 map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
 map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+map('i', '<C-k>', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
 map('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
 map('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
 map('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
@@ -55,7 +56,6 @@ map('n', '<F10>', "<cmd>lua require'dap'.step_over()<cr>", opts)
 map('n', '<F11>', "<cmd>lua require'dap'.step_into()<cr>", opts)
 map('n', '<S-F11>', "<cmd>lua require'dap'.step_into()<cr>", opts)
 
-
 -- lsp stuff
 map('n', '<leader>cr', "<cmd>lua require'telescope.builtin'.lsp_references(require('telescope.themes').get_dropdown({layout_config={width=0.9, height=0.2}}))<cr>", opts)
 map('n', '<leader>sd', "<cmd>lua require'telescope.builtin'.lsp_document_symbols()<cr>", opts)
@@ -95,3 +95,13 @@ map('n', '<leader>bp', ':BufferPick<CR>', opts)
 map('n', '<space>bn', ':BufferOrderByBufferNumber<CR>', opts)
 map('n', '<space>bd', ':BufferOrderByDirectory<CR>', opts)
 map('n', '<space>bl', ':BufferOrderByLanguage<CR>', opts)
+
+
+-- ripgrep
+map('n', 'rr', "<cmd>lua require'nvim-ripgrep'.grep()<cr>", opts)
+
+-- trouble
+map("n", "gR", "<cmd>Trouble lsp_references<cr>", opts)
+map("n", "<leader>xw", "<cmd>Trouble workspace_diagnostics<cr> zm", opts)
+map("n", "<leader>xd", "<cmd>Trouble document_diagnostics<cr>", opts)
+map("n", "gR", "<cmd>Trouble lsp_references<cr>", opts)

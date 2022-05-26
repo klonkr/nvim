@@ -2,9 +2,8 @@ vim.g.mapleader = ' '
 vim.wo.number = true
 vim.wo.relativenumber = true
 vim.cmd[[colorscheme tokyonight]]
-vim.cmd[[set guifont=FiraCode\ NF:h10]]
+--vim.cmd[[set guifont=FiraCode\ NF:h10]]
 -- vim.cmd[[set guifont=Hack\ Nerd\ Font:h14]]
-vim.g.tokyonight_style = "night"
 --vim.g.material_style = "deep ocean"
 
 vim.g.dashboard_default_executive = 'telescope'
@@ -13,7 +12,7 @@ local o = vim.o
 local bo = vim.bo
 local wo = vim.wo
 
--- o.guifont = 'FiraCode NF:8'
+o.guifont = [[FiraCode NF:h12]]
 o.clipboard = 'unnamedplus'
 o.termguicolors = true
 o.syntax = 'on'
@@ -37,12 +36,13 @@ wo.number = true
 wo.relativenumber = true
 wo.signcolumn = 'yes'
 wo.wrap = false
+vim.g.tokyonight_style = "night"
 
 vim.g.symbols_outline = {
   width = 35
 }
 
+vim.cmd[[language en]]
 -- nvui stuff
 --vim.cmd[[:NvuiToggleFrameless]]
-vim.cmd[[:NvuiOpacity 0.95]]
-vim.cmd[[language en]]
+--vim.cmd[[:NvuiOpacity 0.95]]
