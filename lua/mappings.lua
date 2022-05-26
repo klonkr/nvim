@@ -6,19 +6,27 @@ end
 
 -- Mappings.
 local opts = { noremap=true, silent=true }
-
+map("n", "gr", "<cmd>Lspsaga rename<cr>", {silent = true, noremap = true})
+map("n", "gx", "<cmd>Lspsaga code_action<cr>", {silent = true, noremap = true})
+map("x", "gx", ":<c-u>Lspsaga range_code_action<cr>", {silent = true, noremap = true})
+map("n", "K",  "<cmd>Lspsaga hover_doc<cr>", {silent = true, noremap = true})
+map("n", "go", "<cmd>Lspsaga show_line_diagnostics<cr>", {silent = true, noremap = true})
+map("n", "gj", "<cmd>Lspsaga diagnostic_jump_next<cr>", {silent = true, noremap = true})
+map("n", "gk", "<cmd>Lspsaga diagnostic_jump_prev<cr>", {silent = true, noremap = true})
+map("n", "<C-u>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1, '<c-u>')<cr>", {})
+map("n", "<C-d>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1, '<c-d>')<cr>", {})
 map('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
 map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
 map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-map('i', '<C-k>', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+--map('i', '<C-k>', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
 map('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
 map('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+map('i', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
 map('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
 map('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
 map('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
 map('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
 map('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-map('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
 map('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
 map('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
 map('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
@@ -28,6 +36,9 @@ map('n', '<leader>cf', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 
 -- tree
 map('n', '<leader>tt', '<cmd>NeoTreeFloatToggle<cr>', opts)
+
+map('n', '<space>dw', "<cmd>lua require('diaglist').open_all_diagnostics()<cr>")
+map('n', '<space>d0', "<cmd>lua require('diaglist').open_buffer_diagnostics()<cr>")
 
 -- telescope stuff
 -- find files
@@ -61,7 +72,8 @@ map('n', '<leader>cr', "<cmd>lua require'telescope.builtin'.lsp_references(requi
 map('n', '<leader>sd', "<cmd>lua require'telescope.builtin'.lsp_document_symbols()<cr>", opts)
 map('n', '<leader>sw', "<cmd>lua require'telescope.builtin'.lsp_workspace_symbols()<cr>", opts)
 map('n', '<leader>sy', "<cmd>lua require'telescope.builtin'.lsp_dynamic_workspace_symbols()<cr>", opts)
-map('n', '<leader>ca', "<cmd>lua require'telescope.builtin'.lsp_code_actions(require('telescope.themes').get_dropdown({}))<cr>", opts)
+map('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+map('v', '<leader>ca', '<cmd>lua vim.lsp.buf.range_code_action()<CR>', opts)
 map('n', '<leader>cd', "<cmd>lua require'telescope.builtin'.diagnostics()<cr>", opts)
 map('n', '<leader>ci', "<cmd>lua require'telescope.builtin'.lsp_implementations(require('telescope.themes').get_dropdown({layout_config={width=0.9, height=0.2}}))<cr>", opts)
 map('n', '<leader>ce', "<cmd>lua require'telescope.builtin'.lsp_definitions()<cr>", opts)
@@ -80,6 +92,7 @@ map('n', '<C-x>', '<CMD>ToggleTerm<CR>', opts)
 map('t', '<A-i>', '<C-\\><C-n><CMD>ToggleTerm<CR>', opts)
 map('t', '<C-x>', '<C-\\><C-n><CMD>ToggleTerm<CR>', opts)
 map("n", "<leader>gl", "<cmd>lua _lazygit_toggle()<CR>", {noremap = true, silent = true})
+map("t", "<leader>gl", "<cmd>lua _lazygit_toggle()<CR>", {noremap = true, silent = true})
 
 -- Close buffer
 map('n', '<leader>bc', ':BufferClose<CR>', opts)

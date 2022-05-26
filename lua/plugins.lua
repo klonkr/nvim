@@ -2,13 +2,22 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   -- editorconfig
-  use "editorconfig/editorconfig-vim"
+  -- use "editorconfig/editorconfig-vim"
 
+  use "tpope/vim-surround"
+  use "onsails/diaglist.nvim"
   -- lsp stuff
   use 'neovim/nvim-lspconfig'
   use "terrortylor/nvim-comment"
   use 'nvim-treesitter/nvim-treesitter-textobjects'
-
+  -- use {
+  -- "rinx/nvim-ripgrep",
+  -- config = function()
+  --   require("nvim-ripgrep").setup {
+  --       -- your configurations here
+  --   }
+  -- end
+  -- }
   use {
   "nvim-neo-tree/neo-tree.nvim",
     branch = "v1.x",
@@ -38,17 +47,17 @@ return require('packer').startup(function(use)
 
   use { 'theHamsta/nvim-dap-virtual-text' }
 
-  use {
-  "folke/trouble.nvim",
-  requires = "kyazdani42/nvim-web-devicons",
-  --config = function()
- --   require("trouble").setup {
-      -- your configuration comes here
-      -- or leave it empty to use the default settings
-      -- refer to the configuration section below
- --   }
- -- end
-  }
+ --  use {
+ --  "folke/trouble.nvim",
+ --  requires = "kyazdani42/nvim-web-devicons",
+ --  --config = function()
+ -- --   require("trouble").setup {
+ --      -- your configuration comes here
+ --      -- or leave it empty to use the default settings
+ --      -- refer to the configuration section below
+ -- --   }
+ -- -- end
+ --  }
 
   use { "rcarriga/nvim-dap-ui",
         requires = {"mfussenegger/nvim-dap"}
@@ -90,22 +99,24 @@ return require('packer').startup(function(use)
 
   use { "beauwilliams/focus.nvim", config = function() require("focus").setup() end }
 
-  use 'romgrk/nvim-treesitter-context'
+ use 'romgrk/nvim-treesitter-context'
+    
+use "tami5/lspsaga.nvim"
 
   use 'lukas-reineke/indent-blankline.nvim'
 
-  use 'kevinhwang91/rnvimr'
+  -- use 'kevinhwang91/rnvimr'
   use 'tpope/vim-repeat'
   use 'ggandor/lightspeed.nvim'
-  use { 'https://gitlab.com/yorickpeterse/nvim-window.git', as = 'nvim-window' }
+  -- use { 'https://gitlab.com/yorickpeterse/nvim-window.git', as = 'nvim-window' }
 
   --themes
-  use  { 'luisiacc/gruvbox-baby', branch = 'main'}
-  use "rebelot/kanagawa.nvim"
-  use 'marko-cerovac/material.nvim'
-  use 'shaunsingh/nord.nvim'
-  use 'navarasu/onedark.nvim'
-  use 'sainnhe/gruvbox-material'
+  -- use  { 'luisiacc/gruvbox-baby', branch = 'main'}
+  -- use "rebelot/kanagawa.nvim"
+  -- use 'marko-cerovac/material.nvim'
+  -- use 'shaunsingh/nord.nvim'
+  -- use 'navarasu/onedark.nvim'
+  -- use 'sainnhe/gruvbox-material'
   use 'folke/tokyonight.nvim'
 
   use {'stevearc/dressing.nvim'}
@@ -119,18 +130,18 @@ use {
   requires = {'kyazdani42/nvim-web-devicons', opt = true}
   }
 
-  use {
-  "ahmedkhalf/project.nvim",
-  config = function()
-    require("project_nvim").setup {
-      patterns = { ".sln", ".csproj", ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json" },
-
-      -- your configuration comes here
-      -- or leave it empty to use the default settings
-      -- refer to the configuration section below
-    }
-    end
-  }
+  -- use {
+  -- "ahmedkhalf/project.nvim",
+  -- config = function()
+  --   require("project_nvim").setup {
+  --     patterns = { ".sln", ".csproj", ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json" },
+  --
+  --     -- your configuration comes here
+  --     -- or leave it empty to use the default settings
+  --     -- refer to the configuration section below
+  --   }
+  --   end
+  -- }
 
   use {
     'AckslD/nvim-whichkey-setup.lua',
@@ -150,6 +161,5 @@ use {
   -- tag = 'release' -- To use the latest release
   }
 
-  use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
-  use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+  -- use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 end)
