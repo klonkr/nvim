@@ -4,6 +4,8 @@ vim.wo.relativenumber = true
 vim.cmd[[colorscheme tokyonight]]
 vim.api.nvim_exec([[  autocmd CursorHold  <buffer> lua vim.lsp.buf.hover() ]], false)
 
+vim.cmd[[command! -count=1 DotnetBuild  lua require'toggleterm'.exec("dotnet build",    <count>, 12)]]
+vim.cmd[[command! -count=1 DotnetTest  lua require'toggleterm'.exec("dotnet test",    <count>, 12)]]
 
 vim.g.dashboard_default_executive = 'telescope'
 
@@ -37,11 +39,4 @@ wo.signcolumn = 'yes'
 wo.wrap = false
 vim.g.tokyonight_style = "night"
 
-vim.g.symbols_outline = {
-  width = 15
-}
-
 vim.cmd[[language en]]
--- nvui stuff
---vim.cmd[[:NvuiToggleFrameless]]
---vim.cmd[[:NvuiOpacity 0.95]]

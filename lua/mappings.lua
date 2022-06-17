@@ -18,7 +18,6 @@ map("n", "<C-d>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1, 
 map('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
 map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
 map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
---map('i', '<C-k>', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
 map('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
 map('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
 map('i', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
@@ -27,18 +26,19 @@ map('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts
 map('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
 map('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
 map('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-map('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-map('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
+-- map('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
 map('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
 map('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
 map('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
 map('n', '<leader>cf', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 
--- tree
-map('n', '<leader>tt', '<cmd>NeoTreeFloatToggle<cr>', opts)
-
 map('n', '<space>dw', "<cmd>lua require('diaglist').open_all_diagnostics()<cr>")
 map('n', '<space>d0', "<cmd>lua require('diaglist').open_buffer_diagnostics()<cr>")
+map('n', '<space>de', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
+
+map('n', '<leader>v', "<cmd>NeoTreeFloatToggle<cr>")
+-- window picker
+map('n', '<leader>ww', "<cmd>lua require('nvim-window').pick()<cr>", { silent = true, noremap = true })
 
 -- telescope stuff
 -- find files
@@ -55,10 +55,8 @@ map('n', '<leader>gb', "<cmd>lua require('telescope.builtin').git_bcommits()<cr>
 map('n', '<leader>gr', "<cmd>lua require('telescope.builtin').git_branches()<cr>")
 map('n', '<leader>gt', "<cmd>lua require('telescope.builtin').git_stash()<cr>")
 
---map('n' "<C-w>", "<cmd>RnvimrToggle<cr>", opts)
-map('n', '<leader>w', "<cmd>lua require('nvim-window').pick()<cr>", { silent = true, noremap = true })
+map('n', '<leader>tr', "<cmd>lua require('telescope.builtin').resume()<cr>")
 
-map('n', '<leader>v', "<cmd>NeoTreeFloatToggle<cr>")
 --dap
 map('n', '<F9>', "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)
 map('n', '<leader>dtd', "<cmd>lua require'dapui'.toggle()<cr>", opts)
@@ -80,12 +78,8 @@ map('n', '<leader>ce', "<cmd>lua require'telescope.builtin'.lsp_definitions()<cr
 map('n', '<leader>ct', "<cmd>lua require'telescope.builtin'.lsp_type_definitions()<cr>", opts)
 
 -- build and stuff
-map('n', '<F2>', "<cmd>lua require'utils'.restore()<cr>", opts)
-map('n', '<F3>', "<cmd>lua require'utils'.build()<cr>", opts)
-map('n', '<F4>', "<cmd>lua require'utils'.restoreAndBuild()<cr>", opts)
-
--- system wide copy paste
-map('n', 'cp', '"*p"')
+map('n', '<F2>', '<CMD>DotnetBuild<CR>', opts)
+map('n', '<F3>', '<CMD>DotnetTest<CR>', opts)
 
 map('n', '<A-i>', '<CMD>ToggleTerm<CR>', opts)
 map('n', '<C-x>', '<CMD>ToggleTerm<CR>', opts)
@@ -99,7 +93,7 @@ map('n', '<leader>bc', ':BufferClose<CR>', opts)
 -- Wipeout buffer
 --                 :BufferWipeout<CR>
 -- Close commands
-map('n', '<leader>bc', ':BufferCloseAllButCurrent<CR>', opts)
+map('n', '<leader>ba', ':BufferCloseAllButCurrent<CR>', opts)
 map('n', '<leader>bl', ':BufferCloseBuffersLeft<CR>', opts)
 map('n', '<leader>br', ':BufferCloseBuffersRight<CR>', opts)
 -- Magic buffer-picking mode
@@ -109,12 +103,3 @@ map('n', '<space>bn', ':BufferOrderByBufferNumber<CR>', opts)
 map('n', '<space>bd', ':BufferOrderByDirectory<CR>', opts)
 map('n', '<space>bl', ':BufferOrderByLanguage<CR>', opts)
 
-
--- ripgrep
-map('n', 'rr', "<cmd>lua require'nvim-ripgrep'.grep()<cr>", opts)
-
--- trouble
-map("n", "gR", "<cmd>Trouble lsp_references<cr>", opts)
-map("n", "<leader>xw", "<cmd>Trouble workspace_diagnostics<cr> zm", opts)
-map("n", "<leader>xd", "<cmd>Trouble document_diagnostics<cr>", opts)
-map("n", "gR", "<cmd>Trouble lsp_references<cr>", opts)

@@ -32,6 +32,7 @@ dap.configurations.cs = {
             path = '/' .. projectname .. '/bin/Debug/net6.0/' .. projectname .. '.dll'
             print('recieved sln')
         end
+
         --return vim.fn.input('Path to dll', vim.fn.getcwd() .. '/bin/Debug/net6.0/' .. Get_project_name() .. '.dll', 'file')
         return vim.fn.input('Path to dll', vim.fn.getcwd() .. path, 'file')
        -- return vim.fn.input('Path to dll', vim.fn.getcwd() .. '/bin/Debug/net6.0/', 'file')

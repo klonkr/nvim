@@ -1,23 +1,15 @@
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
+  use { 'echasnovski/mini.nvim', branch = 'stable' }
 
-  -- editorconfig
-  -- use "editorconfig/editorconfig-vim"
-
-  use "tpope/vim-surround"
-  use "onsails/diaglist.nvim"
-  -- lsp stuff
+  use 'onsails/diaglist.nvim'
+  use {'jdhao/whitespace.nvim', event = 'VimEnter'}
+  use { 'tami5/lspsaga.nvim' }  -- nightly
+  use {
+  'nvim-lualine/lualine.nvim',
+  requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+}
   use 'neovim/nvim-lspconfig'
-  use "terrortylor/nvim-comment"
-  use 'nvim-treesitter/nvim-treesitter-textobjects'
-  -- use {
-  -- "rinx/nvim-ripgrep",
-  -- config = function()
-  --   require("nvim-ripgrep").setup {
-  --       -- your configurations here
-  --   }
-  -- end
-  -- }
   use {
   "nvim-neo-tree/neo-tree.nvim",
     branch = "v1.x",
@@ -34,36 +26,19 @@ return require('packer').startup(function(use)
       ]])
     end
   }
-
+  use { 'https://gitlab.com/yorickpeterse/nvim-window.git', as = 'nvim-window' }
+  use "lukas-reineke/indent-blankline.nvim"
   use {
     'nvim-treesitter/nvim-treesitter',
     commit = '668de0951a36ef17016074f1120b6aacbe6c4515',
     run = ':TSUpdate'
   }
-
-  use {"ellisonleao/glow.nvim"}
-
-  use {'simrat39/rust-tools.nvim' }
-
   use { 'theHamsta/nvim-dap-virtual-text' }
 
- --  use {
- --  "folke/trouble.nvim",
- --  requires = "kyazdani42/nvim-web-devicons",
- --  --config = function()
- -- --   require("trouble").setup {
- --      -- your configuration comes here
- --      -- or leave it empty to use the default settings
- --      -- refer to the configuration section below
- -- --   }
- -- -- end
- --  }
 
   use { "rcarriga/nvim-dap-ui",
         requires = {"mfussenegger/nvim-dap"}
     }
-
-  use "MaxMEllon/vim-jsx-pretty"
 
   use { 'hrsh7th/cmp-nvim-lsp',
   'hrsh7th/cmp-buffer',
@@ -80,68 +55,11 @@ return require('packer').startup(function(use)
     requires = { {'nvim-lua/plenary.nvim'} }
   }
 
-  use {
-    "folke/twilight.nvim",
-    config = function()
-    require("twilight").setup {
-      -- your configuration comes here
-      -- or leave it empty to use the default settings
-      -- refer to the configuration section below
-    }
-  end
-  }
-
-  use { 'simrat39/symbols-outline.nvim' }
-
---  use 'yamatsum/nvim-cursorline'
-  use 'RRethy/vim-illuminate'
-
-
-  use { "beauwilliams/focus.nvim", config = function() require("focus").setup() end }
-
  use 'romgrk/nvim-treesitter-context'
-    
-use "tami5/lspsaga.nvim"
 
-  use 'lukas-reineke/indent-blankline.nvim'
-
-  -- use 'kevinhwang91/rnvimr'
   use 'tpope/vim-repeat'
   use 'ggandor/lightspeed.nvim'
-  -- use { 'https://gitlab.com/yorickpeterse/nvim-window.git', as = 'nvim-window' }
-
-  --themes
-  -- use  { 'luisiacc/gruvbox-baby', branch = 'main'}
-  -- use "rebelot/kanagawa.nvim"
-  -- use 'marko-cerovac/material.nvim'
-  -- use 'shaunsingh/nord.nvim'
-  -- use 'navarasu/onedark.nvim'
-  -- use 'sainnhe/gruvbox-material'
   use 'folke/tokyonight.nvim'
-
-  use {'stevearc/dressing.nvim'}
-
-use {
-  'romgrk/barbar.nvim',
-  requires = {'kyazdani42/nvim-web-devicons'}
-}
-  use {
-  'nvim-lualine/lualine.nvim',
-  requires = {'kyazdani42/nvim-web-devicons', opt = true}
-  }
-
-  -- use {
-  -- "ahmedkhalf/project.nvim",
-  -- config = function()
-  --   require("project_nvim").setup {
-  --     patterns = { ".sln", ".csproj", ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json" },
-  --
-  --     -- your configuration comes here
-  --     -- or leave it empty to use the default settings
-  --     -- refer to the configuration section below
-  --   }
-  --   end
-  -- }
 
   use {
     'AckslD/nvim-whichkey-setup.lua',
@@ -158,8 +76,11 @@ use {
     requires = {
       'nvim-lua/plenary.nvim'
     },
-  -- tag = 'release' -- To use the latest release
   }
 
-  -- use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+use { "beauwilliams/focus.nvim", config = function() require("focus").setup() end }
+use {
+  'romgrk/barbar.nvim',
+  requires = {'kyazdani42/nvim-web-devicons'}
+}
 end)
