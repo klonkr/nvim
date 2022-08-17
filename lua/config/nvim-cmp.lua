@@ -62,9 +62,10 @@ if utils.isLinux() then
 end
 
 if utils.isWindows() then
-  omnisharp_bin = "C:/omnisharp/OmniSharp.exe"
+  omnisharp_bin = "C:/Users/AAVU/scoop/apps/omnisharp/current/OmniSharp.exe"
+  -- omnisharp_bin = "C:/omnisharp/OmniSharp.exe"
 end
-  
+
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 local function on_cwd()

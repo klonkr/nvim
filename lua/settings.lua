@@ -40,3 +40,7 @@ wo.wrap = false
 vim.g.tokyonight_style = "night"
 
 vim.cmd[[language en]]
+
+o.updatetime = 1000
+-- vim.api.nvim_create_autocmd("CursorHold", { command = "Lspsaga hover_doc"})
+vim.api.nvim_create_autocmd("CursorHoldI", { command = "Lspsaga signature_help"})

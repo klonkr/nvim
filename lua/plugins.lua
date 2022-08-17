@@ -2,6 +2,7 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
   use { 'echasnovski/mini.nvim', branch = 'stable' }
 
+  use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
   use 'onsails/diaglist.nvim'
   use {'jdhao/whitespace.nvim', event = 'VimEnter'}
   use { 'tami5/lspsaga.nvim' }  -- nightly
@@ -9,6 +10,12 @@ return require('packer').startup(function(use)
   'nvim-lualine/lualine.nvim',
   requires = { 'kyazdani42/nvim-web-devicons', opt = true }
 }
+
+  use { 'skywind3000/asynctasks.vim',
+      requires = { 'skywind3000/asyncrun.vim' },
+  }
+
+  use 'natecraddock/workspaces.nvim'
   use 'neovim/nvim-lspconfig'
   use {
   "nvim-neo-tree/neo-tree.nvim",

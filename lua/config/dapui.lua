@@ -7,6 +7,7 @@ if utils.isLinux() then
 end
 
 if utils.isWindows() then
+  -- command = "C:/Users/AAVU/scoop/apps/omnisharp/current"
   command = "C:/Program Files (x86)/netcoredbg/netcoredbg.exe"
 end
 
@@ -50,25 +51,25 @@ require("dapui").setup({
     edit = "e",
     repl = "r",
   },
-  sidebar = {
-    -- You can change the order of elements in the sidebar
-    elements = {
-      -- Provide as ID strings or tables with "id" and "size" keys
-      { id = "breakpoints", size = 0.25 },
-      { id = "stacks", size = 0.25 },
+  layouts = {
       {
-        id = "scopes",
-        size = 0.25, -- Can be float or integer > 1
+          elements = {
+              'scopes',
+              'breakpoints',
+              'stacks',
+              'watches',
+          },
+          size = 60,
+          position = 'left',
       },
-   --   { id = "watches", size = 00.25 },
-    },
-    size = 60,
-    position = "left", -- Can be "left", "right", "top", "bottom"
-  },
-  tray = {
-    elements = { "repl" },
-    size = 10,
-    position = "bottom", -- Can be "left", "right", "top", "bottom"
+      {
+          elements = {
+              'repl',
+              'console'
+          },
+          size = 10,
+          position = 'bottom',
+      },
   },
   floating = {
     max_height = nil, -- These can be integers or a float between 0 and 1.

@@ -21,9 +21,12 @@ map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
 map('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
 map('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
 map('i', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-map('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
-map('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
-map('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
+
+map('n', '<space>wa', '<cmd>lua require"workspaces".add()<CR>', opts)
+map('n', '<space>wr', '<cmd>lua require"workspaces".remove()<CR>', opts)
+map('n', '<space>wo', '<cmd>lua require"workspaces".open()<CR>', opts)
+map('n', '<space>wl', '<cmd>Telescope workspaces<CR>', opts)
+
 map('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
 map('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
 -- map('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
@@ -42,20 +45,22 @@ map('n', '<leader>ww', "<cmd>lua require('nvim-window').pick()<cr>", { silent = 
 
 -- telescope stuff
 -- find files
-map('n', '<leader>ff', "<cmd>lua require('telescope.builtin').find_files()<cr>")
-map('n', '<leader>fg', "<cmd>lua require('telescope.builtin').live_grep()<cr>")
-map('n', '<leader>fb', "<cmd>lua require('telescope.builtin').buffers()<cr>")
-map('n', '<leader>fh', "<cmd>lua require('telescope.builtin').help_tags()<cr>")
+map('n', '<leader>ff', "<cmd>lua require('telescope.builtin').find_files({layout_strategy='vertical'})<cr>")
+map('n', '<leader>fg', "<cmd>lua require('telescope.builtin').live_grep({layout_strategy='vertical'})<cr>")
+map('n', '<leader>fb', "<cmd>lua require('telescope.builtin').buffers({layout_strategy='vertical'})<cr>")
+map('n', '<leader>fh', "<cmd>lua require('telescope.builtin').help_tags({layout_strategy='vertical'})<cr>")
 map('n', '<leader>fr', "<cmd>lua require('telescope.builtin').file_browser(require('telescope.themes').get_dropdown({}))<cr>")
 
 -- git
-map('n', '<leader>gs', "<cmd>lua require('telescope.builtin').git_status()<cr>")
-map('n', '<leader>gc', "<cmd>lua require('telescope.builtin').git_commits()<cr>")
-map('n', '<leader>gb', "<cmd>lua require('telescope.builtin').git_bcommits()<cr>")
-map('n', '<leader>gr', "<cmd>lua require('telescope.builtin').git_branches()<cr>")
-map('n', '<leader>gt', "<cmd>lua require('telescope.builtin').git_stash()<cr>")
+map('n', '<leader>gs', "<cmd>lua require('telescope.builtin').git_status({layout_strategy='vertical'})<cr>")
+map('n', '<leader>gc', "<cmd>lua require('telescope.builtin').git_commits({layout_strategy='vertical'})<cr>")
+map('n', '<leader>gb', "<cmd>lua require('telescope.builtin').git_bcommits({layout_strategy='vertical'})<cr>")
+map('n', '<leader>gr', "<cmd>lua require('telescope.builtin').git_branches({layout_strategy='vertical'})<cr>")
+map('n', '<leader>gt', "<cmd>lua require('telescope.builtin').git_stash({layout_strategy='vertical'})<cr>")
 
-map('n', '<leader>tr', "<cmd>lua require('telescope.builtin').resume()<cr>")
+map('n', '<leader>tr', "<cmd>lua require('telescope.builtin').resume({layout_strategy='vertical'})<cr>")
+map('n', '<leader>tk', "<cmd>lua require('telescope.builtin').keymaps()<cr>")
+map('n', '<leader>ts', "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find({layout_strategy='vertical'})<cr>")
 
 --dap
 map('n', '<F9>', "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)

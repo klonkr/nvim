@@ -1,5 +1,5 @@
 require('mini.sessions').setup({ directory = 'C:/nvim/misc/sessions' })
-require('mini.starter').setup()
+--require('mini.starter').setup()
 
 vim.defer_fn(function()
   require('mini.comment').setup()
