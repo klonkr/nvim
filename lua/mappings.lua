@@ -7,6 +7,7 @@ end
 -- Mappings.
 local opts = { noremap=true, silent=true }
 map("n", "gr", "<cmd>Lspsaga rename<cr>", {silent = true, noremap = true})
+map("n", "cg", "<cmd>Lspsaga lsp_finder<cr>", {silent = true, noremap = true})
 map("n", "gx", "<cmd>Lspsaga code_action<cr>", {silent = true, noremap = true})
 map("x", "gx", ":<c-u>Lspsaga range_code_action<cr>", {silent = true, noremap = true})
 map("n", "K",  "<cmd>Lspsaga hover_doc<cr>", {silent = true, noremap = true})
@@ -41,7 +42,7 @@ map('n', '<space>de', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
 
 map('n', '<leader>v', "<cmd>NeoTreeFloatToggle<cr>")
 -- window picker
-map('n', '<leader>ww', "<cmd>lua require('nvim-window').pick()<cr>", { silent = true, noremap = true })
+map('n', 'åå', "<cmd>lua require('nvim-window').pick()<cr>", { silent = true, noremap = true })
 
 -- telescope stuff
 -- find files

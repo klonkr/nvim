@@ -2,7 +2,7 @@ vim.g.mapleader = ' '
 vim.wo.number = true
 vim.wo.relativenumber = true
 vim.cmd[[colorscheme tokyonight]]
-vim.api.nvim_exec([[  autocmd CursorHold  <buffer> lua vim.lsp.buf.hover() ]], false)
+-- vim.api.nvim_exec([[  autocmd CursorHold  <buffer> lua vim.lsp.buf.hover() ]], false)
 
 vim.cmd[[command! -count=1 DotnetBuild  lua require'toggleterm'.exec("dotnet build",    <count>, 12)]]
 vim.cmd[[command! -count=1 DotnetTest  lua require'toggleterm'.exec("dotnet test",    <count>, 12)]]
@@ -43,4 +43,4 @@ vim.cmd[[language en]]
 
 o.updatetime = 1000
 -- vim.api.nvim_create_autocmd("CursorHold", { command = "Lspsaga hover_doc"})
-vim.api.nvim_create_autocmd("CursorHoldI", { command = "Lspsaga signature_help"})
+-- vim.api.nvim_create_autocmd("CursorHoldI", { command = "Lspsaga signature_help"})

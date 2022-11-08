@@ -5,7 +5,17 @@ return require('packer').startup(function(use)
   use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
   use 'onsails/diaglist.nvim'
   use {'jdhao/whitespace.nvim', event = 'VimEnter'}
-  use { 'tami5/lspsaga.nvim' }  -- nightly
+   use({
+    "glepnir/lspsaga.nvim",
+    branch = "main",
+    config = function()
+        local saga = require("lspsaga")
+
+        saga.init_lsp_saga({
+            -- your configuration
+        })
+    end,
+}) --
   use {
   'nvim-lualine/lualine.nvim',
   requires = { 'kyazdani42/nvim-web-devicons', opt = true }
@@ -35,11 +45,7 @@ return require('packer').startup(function(use)
   }
   use { 'https://gitlab.com/yorickpeterse/nvim-window.git', as = 'nvim-window' }
   use "lukas-reineke/indent-blankline.nvim"
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    commit = '668de0951a36ef17016074f1120b6aacbe6c4515',
-    run = ':TSUpdate'
-  }
+  use({ "nvim-treesitter/nvim-treesitter"})
   use { 'theHamsta/nvim-dap-virtual-text' }
 
 
