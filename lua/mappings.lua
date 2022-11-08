@@ -91,8 +91,9 @@ map('n', '<A-i>', '<CMD>ToggleTerm<CR>', opts)
 map('n', '<C-x>', '<CMD>ToggleTerm<CR>', opts)
 map('t', '<A-i>', '<C-\\><C-n><CMD>ToggleTerm<CR>', opts)
 map('t', '<C-x>', '<C-\\><C-n><CMD>ToggleTerm<CR>', opts)
-map("n", "<leader>gl", "<cmd>lua _lazygit_toggle()<CR>", {noremap = true, silent = true})
-map("t", "<leader>gl", "<cmd>lua _lazygit_toggle()<CR>", {noremap = true, silent = true})
+
+map("n", "<leader>gl", "<cmd>Lspsaga open_floaterm lazygit<CR>", {noremap = true, silent = true})
+map("t", "<leader>gl", "<cmd>Lspsaga close_floaterm<CR>", {noremap = true, silent = true})
 
 -- Close buffer
 map('n', '<leader>bc', ':BufferClose<CR>', opts)
