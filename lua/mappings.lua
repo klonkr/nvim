@@ -18,29 +18,15 @@ map("n", "<C-u>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1,
 map("n", "<C-d>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1, '<c-d>')<cr>", {})
 map('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
 map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
 map('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
 map('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
 map('i', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
 
-map('n', '<space>wa', '<cmd>lua require"workspaces".add()<CR>', opts)
-map('n', '<space>wr', '<cmd>lua require"workspaces".remove()<CR>', opts)
-map('n', '<space>wo', '<cmd>lua require"workspaces".open()<CR>', opts)
-map('n', '<space>wl', '<cmd>Telescope workspaces<CR>', opts)
-
-map('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-map('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
--- map('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-map('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
-map('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
-map('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
-map('n', '<leader>cf', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+map('n', '<leader>cf', '<cmd>lua vim.lsp.buf.format( async = true )<CR>', opts)
 
 map('n', '<space>dw', "<cmd>lua require('diaglist').open_all_diagnostics()<cr>")
 map('n', '<space>d0', "<cmd>lua require('diaglist').open_buffer_diagnostics()<cr>")
-map('n', '<space>de', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
 
-map('n', '<leader>v', "<cmd>NeoTreeFloatToggle<cr>")
 -- window picker
 map('n', 'åå', "<cmd>lua require('nvim-window').pick()<cr>", { silent = true, noremap = true })
 
@@ -50,7 +36,6 @@ map('n', '<leader>ff', "<cmd>lua require('telescope.builtin').find_files({layout
 map('n', '<leader>fg', "<cmd>lua require('telescope.builtin').live_grep({layout_strategy='vertical'})<cr>")
 map('n', '<leader>fb', "<cmd>lua require('telescope.builtin').buffers({layout_strategy='vertical'})<cr>")
 map('n', '<leader>fh', "<cmd>lua require('telescope.builtin').help_tags({layout_strategy='vertical'})<cr>")
-map('n', '<leader>fr', "<cmd>lua require('telescope.builtin').file_browser(require('telescope.themes').get_dropdown({}))<cr>")
 
 -- git
 map('n', '<leader>gs', "<cmd>lua require('telescope.builtin').git_status({layout_strategy='vertical'})<cr>")
@@ -76,21 +61,11 @@ map('n', '<leader>cr', "<cmd>lua require'telescope.builtin'.lsp_references(requi
 map('n', '<leader>sd', "<cmd>lua require'telescope.builtin'.lsp_document_symbols()<cr>", opts)
 map('n', '<leader>sw', "<cmd>lua require'telescope.builtin'.lsp_workspace_symbols()<cr>", opts)
 map('n', '<leader>sy', "<cmd>lua require'telescope.builtin'.lsp_dynamic_workspace_symbols()<cr>", opts)
-map('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-map('v', '<leader>ca', '<cmd>lua vim.lsp.buf.range_code_action()<CR>', opts)
 map('n', '<leader>cd', "<cmd>lua require'telescope.builtin'.diagnostics()<cr>", opts)
-map('n', '<leader>ci', "<cmd>lua require'telescope.builtin'.lsp_implementations(require('telescope.themes').get_dropdown({layout_config={width=0.9, height=0.2}}))<cr>", opts)
-map('n', '<leader>ce', "<cmd>lua require'telescope.builtin'.lsp_definitions()<cr>", opts)
-map('n', '<leader>ct', "<cmd>lua require'telescope.builtin'.lsp_type_definitions()<cr>", opts)
 
 -- build and stuff
 map('n', '<F2>', '<CMD>DotnetBuild<CR>', opts)
 map('n', '<F3>', '<CMD>DotnetTest<CR>', opts)
-
-map('n', '<A-i>', '<CMD>ToggleTerm<CR>', opts)
-map('n', '<C-x>', '<CMD>ToggleTerm<CR>', opts)
-map('t', '<A-i>', '<C-\\><C-n><CMD>ToggleTerm<CR>', opts)
-map('t', '<C-x>', '<C-\\><C-n><CMD>ToggleTerm<CR>', opts)
 
 map("n", "<leader>gl", "<cmd>Lspsaga open_floaterm lazygit<CR>", {noremap = true, silent = true})
 map("t", "<leader>gl", "<cmd>Lspsaga close_floaterm<CR>", {noremap = true, silent = true})

@@ -66,7 +66,7 @@ if utils.isWindows() then
   -- omnisharp_bin = "C:/omnisharp/OmniSharp.exe"
 end
 
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 local function on_cwd()
   return vim.loop.cwd()

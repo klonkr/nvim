@@ -8,14 +8,24 @@ return require('packer').startup(function(use)
    use({
     "glepnir/lspsaga.nvim",
     branch = "main",
-    config = function()
-        local saga = require("lspsaga")
-
-        saga.init_lsp_saga({
-            -- your configuration
-        })
-    end,
-}) --
+    -- config = function()
+    --     local saga = require("lspsaga")
+    --
+    --     saga.init_lsp_saga({
+    --         -- your configuration
+    --     })
+    -- end,
+})
+    use 'nvim-tree/nvim-web-devicons'
+use {
+  "nvim-neo-tree/neo-tree.nvim",
+    branch = "v2.x",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
+      "MunifTanjim/nui.nvim",
+    }
+  }
   use {
   'nvim-lualine/lualine.nvim',
   requires = { 'kyazdani42/nvim-web-devicons', opt = true }
@@ -27,22 +37,6 @@ return require('packer').startup(function(use)
 
   use 'natecraddock/workspaces.nvim'
   use 'neovim/nvim-lspconfig'
-  use {
-  "nvim-neo-tree/neo-tree.nvim",
-    branch = "v1.x",
-    requires = {
-      "nvim-lua/plenary.nvim",
-      "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
-      "MunifTanjim/nui.nvim"
-    },
-    config = function ()
-      -- See ":help neo-tree-highlights" for a list of available highlight groups
-      vim.cmd([[
-        hi link NeoTreeDirectoryName Directory
-        hi link NeoTreeDirectoryIcon NeoTreeDirectoryName
-      ]])
-    end
-  }
   use { 'https://gitlab.com/yorickpeterse/nvim-window.git', as = 'nvim-window' }
   use "lukas-reineke/indent-blankline.nvim"
   use({ "nvim-treesitter/nvim-treesitter"})
@@ -68,8 +62,6 @@ return require('packer').startup(function(use)
     requires = { {'nvim-lua/plenary.nvim'} }
   }
 
- use 'romgrk/nvim-treesitter-context'
-
   use 'tpope/vim-repeat'
   use 'ggandor/lightspeed.nvim'
   use 'folke/tokyonight.nvim'
@@ -80,7 +72,6 @@ return require('packer').startup(function(use)
   }
 
   -- terminal
-  use "numToStr/FTerm.nvim"
   use {"akinsho/toggleterm.nvim"}
 
 -- git stuff

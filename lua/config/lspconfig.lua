@@ -41,6 +41,11 @@ end
 
 --local sumneko_root_path = "C:/Users/yashg/bin/lua-language-server"
 
+local util = require 'lspconfig/util'
+local root_pattern = util.root_pattern("elm.json")
+require'lspconfig'.elmls.setup{
+    root_dir = root_pattern("elm.json")
+}
 -- LuaFormatter off
 local sumneko_binary
 if utils.isWindows() then
@@ -53,6 +58,16 @@ else
     print("Unsupported system for sumneko")
 end
 -- LuaFormatter on
+
+-- local util = require 'lspconfig/util'
+-- require'lspconfig'.elmls.setup{
+--     cmd = {"elm-language-server"},
+--     filetypes = { "elm" },
+--     init_options = {
+--         elmAnalyseTrigger = "change"
+--     },
+--     root_dir = util.root_pattern("elm.json")
+-- }
 
 require'lspconfig'.sumneko_lua.setup{
     cmd = {lua_bin, "-E", sumneko_binary }, --"/main.lua"},
