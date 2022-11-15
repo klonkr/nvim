@@ -17,3 +17,4 @@ require('config.gitsigns')
 require('config.lualine')
 require('config.diaglist')
 require('config.indent-blankline')
+require'lspconfig'.fsautocomplete.setup{}

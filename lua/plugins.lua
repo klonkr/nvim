@@ -16,6 +16,7 @@ return require('packer').startup(function(use)
     --     })
     -- end,
 })
+use 'adelarsq/neofsharp.vim'
     use 'nvim-tree/nvim-web-devicons'
 use {
   "nvim-neo-tree/neo-tree.nvim",

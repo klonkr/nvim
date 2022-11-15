@@ -29,6 +29,7 @@ map('n', '<space>d0', "<cmd>lua require('diaglist').open_buffer_diagnostics()<cr
 
 -- window picker
 map('n', 'åå', "<cmd>lua require('nvim-window').pick()<cr>", { silent = true, noremap = true })
+map('n', '<leader>v', "<cmd>Neotree float<cr>", opts)
 
 -- telescope stuff
 -- find files
